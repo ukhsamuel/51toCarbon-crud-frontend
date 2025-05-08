@@ -1,6 +1,8 @@
+import { User } from "./user";
+
 export class DataTableConfig {
     Columns: string[] = [];
-    Data: any;
+    Data: User[] = [];
     PageSourceName: string = '';
 
     constructor(values: DataTableConfig) {
