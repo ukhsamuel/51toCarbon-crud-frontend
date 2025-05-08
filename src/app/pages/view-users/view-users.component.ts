@@ -9,6 +9,7 @@ import { DataTableConfig } from '../../core/models/data-table-config.model';
 import { UserServiceMock } from '../../core/services/user.mock.service';
 import { environment } from '../../../environments/environment';
 import { MatIcon } from '@angular/material/icon';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-users',
@@ -19,6 +20,7 @@ import { MatIcon } from '@angular/material/icon';
 export class ViewUsersComponent implements OnInit {
   // Services
   userService: UserService | UserServiceMock = (environment.mock ? inject(UserServiceMock) : inject(UserService));
+  private toastr = inject(ToastrService);
 
   // Observables
   users$!: Observable<DataTableConfig>;
@@ -45,6 +47,7 @@ export class ViewUsersComponent implements OnInit {
       tap(() => (this.loading = false)),
       catchError((err) => {
         console.error('Error - getUsers', err);
+        this.toastr.error(err);
         this.loading = false;
         return of(this.usersDataTable);
       })

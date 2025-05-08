@@ -1,6 +1,6 @@
 <div class="page-container p-1 md:p-8">
   <div>
-    <h1 class="page-title">
+    <h1 class="text-center mb-3">
       <mat-icon>people</mat-icon>
       View Users Table
     </h1>
@@ -10,7 +10,7 @@
     <app-data-table [tableData]="users"></app-data-table>
   </mat-card>
   } @else {
-  <div class="loading-container" [id]="pageSourceName + '-spinner'">
+  <div class="loading-container flex justify-content-center align-items-center p-4" [id]="pageSourceName + '-spinner'">
     <mat-spinner></mat-spinner>
   </div>
   }
