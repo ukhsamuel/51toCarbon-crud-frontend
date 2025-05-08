@@ -8,10 +8,11 @@ import { AsyncPipe } from '@angular/common';
 import { DataTableConfig } from '../../core/models/data-table-config.model';
 import { UserServiceMock } from '../../core/services/user.mock.service';
 import { environment } from '../../../environments/environment';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-view-users',
-  imports: [DataTableComponent, MatSpinner, MatCard, AsyncPipe],
+  imports: [DataTableComponent, MatSpinner, MatCard, AsyncPipe, MatIcon],
   templateUrl: './view-users.component.html',
   styleUrl: './view-users.component.scss',
 })

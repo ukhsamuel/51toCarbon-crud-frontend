@@ -1,12 +1,17 @@
-@if (users$ | async; as users) {
-
-<mat-card class="page-container">
-  <app-data-table
-    [tableData]="users"
-  ></app-data-table>
-</mat-card>
-} @else {
-<div class="loading-container" [id]="pageSourceName + '-spinner'">
-  <mat-spinner></mat-spinner>
+<div class="page-container p-1 md:p-8">
+  <div>
+    <h1 class="page-title">
+      <mat-icon>people</mat-icon>
+      View Users Table
+    </h1>
+  </div>
+  @if (users$ | async; as users) {
+  <mat-card>
+    <app-data-table [tableData]="users"></app-data-table>
+  </mat-card>
+  } @else {
+  <div class="loading-container" [id]="pageSourceName + '-spinner'">
+    <mat-spinner></mat-spinner>
+  </div>
+  }
 </div>
-}

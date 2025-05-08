@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ViewUsersComponent } from './view-users.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 import { UserServiceMock } from '../../core/services/user.mock.service';
 import { UserService } from '../../core/services/user.service';
@@ -13,8 +13,8 @@ describe('ViewUsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [{ provide: UserService, useClass: UserServiceMock }],
-      imports: [ViewUsersComponent, HttpClientModule],
+      providers: [{ provide: UserService, useClass: UserServiceMock }, provideHttpClient()],
+      imports: [ViewUsersComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ViewUsersComponent);
